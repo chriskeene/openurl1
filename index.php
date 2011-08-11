@@ -18,8 +18,8 @@ $task = $_GET["task"];
 echo $task;
 
 switch ($task) {
-    case "journaldetails":
-        include 'journaldetails.php';
+    case "itemdetails":
+        include 'itemdetails.php';
         break;
     case "publisherdetails":
         include 'publisherdetails.php';

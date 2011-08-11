@@ -35,7 +35,8 @@ function rendertopjournallist($list, $num=10) {
     foreach ($list as $title => $total) {
         if ($title == "") { continue; }
         $count++;
-        echo "<li>$count $title ( $total) </li>";
+        $titlesafe = urlencode($title);
+        echo "<li><a href=\"?task=itemdetails&item=$titlesafe&itemtype=title\">$count $title ($total)</a> </li>";
         if ($count >= $num) { break; }
     }
     echo "</ul>";
