@@ -29,11 +29,16 @@ function renderjournalsearchbox() {
 
 //
 function rendertopjournallist($list, $num=10) {
+    $count;
     echo '<div class="toplist">
         <ul>';
     foreach ($list as $title => $total) {
-        echo "<li>$title ( $total) </li>";
+        if ($title == "") { continue; }
+        $count++;
+        echo "<li>$count $title ( $total) </li>";
+        if ($count >= $num) { break; }
     }
+    echo "</ul>";
     
 }
 

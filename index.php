@@ -8,6 +8,8 @@
 define("APP_NAME",     'OpenURL.ac.uk Stat explorer');
 define("BYLINE",     'under development...');
 
+define("DATATABLE", 'activity');
+
 
 
 include 'header-temp.php';
@@ -16,8 +18,8 @@ $task = $_GET["task"];
 echo $task;
 
 switch ($task) {
-    case "home":
-        include 'home.php';
+    case "journaldetails":
+        include 'journaldetails.php';
         break;
     case "publisherdetails":
         include 'publisherdetails.php';
@@ -27,7 +29,6 @@ switch ($task) {
         //include "welcometext.php";
         include "home.php";
 }
-//include 'initalise.php';
 
 include 'footer-temp.php';
 

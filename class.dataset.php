@@ -18,12 +18,12 @@ class Dataset {
     public $test;
     
     
-    public function getPopularJournals() {
+    public function getPopularJournals($maxnumber=10) {
          $sql1 = "SELECT title, COUNT(*) AS Total
-            FROM TABLE2
+            FROM " . DATATABLE . "
             GROUP BY title
             ORDER BY  Total DESC
-            LIMIT 0,10";
+            LIMIT 0, $maxnumber";
          $result1 = mysql_query($sql1) or die("Query failed : " . mysql_error());
 
          $poularjournals = array();

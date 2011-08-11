@@ -20,7 +20,7 @@ renderjournalsearchbox();
 require_once 'class.dataset.php';
 $dataset = new Dataset();
 $popJournalsList = array();
-$popJournalsList = $dataset->getPopularJournals();
-rendertopjournallist($popJournalsList);
+$popJournalsList = $dataset->getPopularJournals(20);
+rendertopjournallist($popJournalsList, 15);
 
 ?>
