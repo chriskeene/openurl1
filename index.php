@@ -5,8 +5,8 @@
  * and open the template in the editor.
  */
 
-define("CAMBRIDGE_URL",     'http://data.lib.cam.ac.uk/endpoint.php');
-
+define("APP_NAME",     'OpenURL.ac.uk Stat explorer');
+define("BYLINE",     'under development...');
 
 
 
@@ -16,8 +16,8 @@ $task = $_GET["task"];
 echo $task;
 
 switch ($task) {
-    case "search":
-        include 'search.php';
+    case "home":
+        include 'home.php';
         break;
     case "publisherdetails":
         include 'publisherdetails.php';
