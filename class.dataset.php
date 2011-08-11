@@ -19,7 +19,7 @@ class Dataset {
     
     
     public function getPopularJournals() {
-         $sql1 = "SELECT title, Total
+         $sql1 = "SELECT title, COUNT(*) AS Total
             FROM TABLE2
             GROUP BY title
             ORDER BY  Total DESC

@@ -12,15 +12,15 @@
 
 
 // Show a search box for journal name
-//require_once 'journalsearch.php';
-//rendersearchbox();
+require_once 'viewsnippets.php';
+renderjournalsearchbox();
+
 
 // show most popular journals
 require_once 'class.dataset.php';
 $dataset = new Dataset();
 $popJournalsList = array();
 $popJournalsList = $dataset->getPopularJournals();
-
-
+rendertopjournallist($popJournalsList);
 
 ?>
