@@ -25,7 +25,7 @@ switch ($task) {
     default:
         echo "default";
         //include "welcometext.php";
-        include "searchform.php";
+        include "home.php";
 }
 //include 'initalise.php';
 
