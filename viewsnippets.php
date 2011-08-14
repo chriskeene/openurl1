@@ -43,6 +43,39 @@ function rendertopjournallist($list, $num=10) {
     
 }
 
+/*
+ * rendertopitemslist
+ * takes an array of the most popular journals/articles/sources etc, and an outputs html
+ * list
+ * $list = array of names to display (key) and the total count (value) of usage
+ * $itemtype is used to provide a link to the item's details page (e.g. title, atitle)
+ */
+function rendertopitemslist($list, $itemtype, $num=10) {
+    $count;
+    echo '<div class="toplist">
+        <ul>';
+    foreach ($list as $item => $total) {
+        if ($item == "") { continue; }
+        $count++;
+        $itemurlencode = urlencode($item);
+        echo "<li>$count <a href=\"?task=itemdetails&item=$itemurlencode&itemtype=$itemtype\">$item
+            </a>($total) </li>";
+        if ($count >= $num) { break; }
+    }
+    echo "</ul>
+        </div>";
+}
 
+/*
+ * what kind of thing to show
+ */
+function renderShowMore($show, $itemcritera, $itemtype) {
+    // option to show more
+    $show = urlencode($show);
+    $itemcritera = urlencode($itemcritera);
+    $itemtype = urlencode($itemtype);
+    echo "<p><a href=\"?task=onelist&show=$show&critera=$itemcritera&criteratype=$itemtype\">more...</a></p>\n";
+    
+}
 
 ?>

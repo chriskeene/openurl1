@@ -1,6 +1,4 @@
-<?php
 
-?>
 
 
 		<div class="cleaner">&nbsp;</div>

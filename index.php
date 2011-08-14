@@ -15,14 +15,14 @@ define("DATATABLE", 'activity');
 include 'header-temp.php';
 
 $task = $_GET["task"];
-echo $task;
+echo "<p>$task</p>\n";
 
 switch ($task) {
     case "itemdetails":
         include 'itemdetails.php';
         break;
-    case "publisherdetails":
-        include 'publisherdetails.php';
+    case "onelist":
+        include 'onelist.php';
         break;
     default:
         echo "default";

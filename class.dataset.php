@@ -1,11 +1,7 @@
 <?php
 require_once 'restrict.php';
+//establish database connection
 connectdb();
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  * Description of datasetPHPClass
@@ -13,9 +9,6 @@ connectdb();
  * @author chriskeene
  */
 class Dataset {
-    //put your code here
-    
-    public $test;
     
     
     /*
@@ -26,7 +19,7 @@ class Dataset {
      * filterfield (source, date)  
      * filter - (wok etc)
      */
-    public function getPopularJournals($maxnumber=10, $filterfield="none", $filter="none") {
+    public function XXXgetPopularJournals($maxnumber=10, $filterfield="none", $filter="none") {
          $sql1 = "SELECT title, COUNT(*) AS Total
             FROM " . DATATABLE . "
             GROUP BY title
@@ -49,7 +42,7 @@ class Dataset {
      * keyword : a journal title or issn 
      * field : either the word 'title' or 'issn'
      */
-    public function getJournalDetails ($keyword, $field="journal") {
+    public function XXXgetJournalDetails ($keyword, $field="journal") {
         $sql1 = "SELECT title, issn, jtitle, COUNT(*) AS Total
             FROM " . DATATABLE . "
             WHERE $field = '$keyword'    
@@ -76,6 +69,11 @@ class Dataset {
      *   e.g. Nature, wok:isi
      */
     public function getMostPopularItems ($items="title", $maxnumber=10, $filterfield="none", $filter="none") {
+        $items = mysql_real_escape_string ($items);
+        $filterfield = mysql_real_escape_string ($filterfield);
+        $filter = mysql_real_escape_string (filter);
+        
+        // if we just want the popular list based on whole dataset then don't set WHERE clause
         if ($filterfield == "none") {
             $wherecriteria = "";
         }
@@ -89,16 +87,17 @@ class Dataset {
             GROUP BY $items
             ORDER BY  Total DESC
             LIMIT 0, $maxnumber";
-        echo "\n $sql1 \n";
+        //echo "\n<p> $sql1 </p>\n";
+        //run the query
         $result1 = mysql_query($sql1) or die("Query failed : " . mysql_error());
 
-         $poularitems = array();
-         while ($line = mysql_fetch_array($result1, MYSQL_ASSOC)) {
+        $poularitems = array();
+        while ($line = mysql_fetch_array($result1, MYSQL_ASSOC)) {
              $item = $line[$items];
              $total = $line["Total"];
              $popularitems[$item] = $total;
-         }
-         return $popularitems;
+        }
+        return $popularitems;
     }
     
     
