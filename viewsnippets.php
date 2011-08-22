@@ -14,7 +14,6 @@ function renderjournalsearchbox() {
               <input type="text" name="q" size="30" value="">
               <select name="type">
                       <option value="Title">Title</option>
-                      <option value="Author">Author</option>
                       <option value="ISN">ISBN/ISSN</option>
                     </select>
               <input type="submit" name="submit" value="Find">
@@ -28,7 +27,7 @@ function renderjournalsearchbox() {
 
 
 //
-function rendertopjournallist($list, $num=10) {
+function XXXrendertopjournallist($list, $num=10) {
     $count;
     echo '<div class="toplist">
         <ul>';

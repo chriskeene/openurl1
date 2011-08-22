@@ -24,9 +24,11 @@ switch ($task) {
     case "onelist":
         include 'onelist.php';
         break;
+    case "journalsearch";
+        include 'journalsearch.php';
+        break;
     default:
         echo "default";
-        //include "welcometext.php";
         include "home.php";
 }
 

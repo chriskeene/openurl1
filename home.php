@@ -20,7 +20,10 @@ renderjournalsearchbox();
 // show most popular journals
 $dataset = new Dataset();
 $popJournalsList = array();
-$popJournalsList = $dataset->getPopularJournals(20);
-rendertopjournallist($popJournalsList, 15);
+//$popJournalsList = $dataset->getPopularJournals(20);
+$popJournalsList = $dataset->getMostPopularItems ('title', 10, 'none', 'none');
+//rendertopjournallist($popJournalsList, 15);
+rendertopitemslist($popJournalsList, 'title', 15);
+renderShowMore('title', 'none', 'none');
 
 ?>

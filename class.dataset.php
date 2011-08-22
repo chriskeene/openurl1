@@ -71,7 +71,7 @@ class Dataset {
     public function getMostPopularItems ($items="title", $maxnumber=10, $filterfield="none", $filter="none") {
         $items = mysql_real_escape_string ($items);
         $filterfield = mysql_real_escape_string ($filterfield);
-        $filter = mysql_real_escape_string (filter);
+        $filter = mysql_real_escape_string ($filter);
         
         // if we just want the popular list based on whole dataset then don't set WHERE clause
         if ($filterfield == "none") {
