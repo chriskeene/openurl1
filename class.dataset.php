@@ -98,8 +98,40 @@ class Dataset {
              $popularitems[$item] = $total;
         }
         return $popularitems;
-    }
+     }
     
+     
+     
+     
+    /*
+     * getJournalDetails
+     * keyword : a journal title or issn 
+     * field : either the word 'title' or 'issn'
+     */
+    public function getMatchingJournals ($titlesearch) {
+        $titlesearch = mysql_real_escape_string ($titlesearch);
+        $sql1 = "SELECT jtitle, COUNT(*) AS Total
+            FROM " . DATATABLE . "
+            WHERE jtitle LIKE '$titlesearch'
+            GROUP BY jtitle
+            ORDER BY Total DESC
+            LIMIT 0, 500";
+        //echo "\n<p> $sql1 </p>\n";
+         $result1 = mysql_query($sql1) or die("Query failed : " . mysql_error());
+
+         $matchingjournals = array();
+         while ($line = mysql_fetch_array($result1, MYSQL_ASSOC)) {
+             $jtitle = $line["jtitle"];
+             $total = $line["Total"];
+             $matchingjournals[$jtitle] = $total;
+         }
+         return $matchingjournals;
+        
+    }
+     
+     
+     
+     
     
 }
 

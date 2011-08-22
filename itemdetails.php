@@ -16,10 +16,11 @@ $thingytype = $_GET['itemtype'];
 // list of the different top ten lists we can show
 $listOfLists = array (
     "title" => "Journal title",
+    "atitle" => "Article",
     "sid" => "Link resolver source",
     "routerRedirectIdentifier" => "Router Redirect Identifier",
     "institutionResolverID" => "Institution Resolver ID",
-    "atitle" => "Article"
+    
 );
 
 echo "<h2>Statistics for $thingtype <em>$thingy</em></h2>";
