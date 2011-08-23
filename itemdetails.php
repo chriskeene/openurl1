@@ -23,7 +23,7 @@ $listOfLists = array (
     
 );
 
-echo "<h2>Statistics for $thingtype <em>$thingy</em></h2>";
+echo "<h2>Statistics for " . $listOfLists[$thingytype] . " <em>$thingy</em></h2>";
 
 // do each list... by 'do' i mean print it out, obviously.
 foreach ($listOfLists as $item => $description) {

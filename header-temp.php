@@ -30,6 +30,7 @@
 	</div> <!-- Header end -->
 
 	<!-- Menu -->
+        <!--
 	<div id="menu-box" class="cleaning-box">
 	<a href="#skip-menu" class="hidden">Skip menu</a>
 		<ul id="menu">
@@ -39,7 +40,7 @@
 			<li><a href="#">We support</a></li>
 			<li><a href="#">Contact</a></li>
 		</ul>
-	</div> <!-- Menu end -->
+	</div> -->  <!-- Menu end -->
 
 <hr class="noscreen" />
 
