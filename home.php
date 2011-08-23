@@ -14,9 +14,10 @@ require_once 'viewsnippets.php';
 require_once 'class.dataset.php';
 
 // Show a search box for journal name
+echo "<h3>Search for a journal name</h3>";
 renderjournalsearchbox();
 
-
+echo "<h3>or select one of the most popular in the openurl.ac.uk dataset</h3>";
 // show most popular journals
 $dataset = new Dataset();
 $popJournalsList = array();

@@ -10,8 +10,10 @@ $titlesearch = $_GET['q'];
 
 $resultlist = array();
 $resultlist = $dataset->getMatchingJournals ($titlesearch);
+
+echo "<h3>Search results for $titlesearch</h3>";
         
-rendertopitemslist($resultlist, 'jtitle', 100);      
+rendertopitemslist($resultlist, 'title', 100);      
 
 /*
  * To change this template, choose Tools | Templates
