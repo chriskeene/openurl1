@@ -15,7 +15,6 @@ define("DATATABLE", 'activity');
 include 'header-temp.php';
 
 $task = $_GET["task"];
-echo "<p>$task</p>\n";
 
 switch ($task) {
     case "itemdetails":
@@ -31,6 +30,8 @@ switch ($task) {
         echo "default";
         include "home.php";
 }
+
+echo "<p>&nbsp</p><p>$task</p>\n";
 
 include 'footer-temp.php';
 

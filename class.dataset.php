@@ -110,9 +110,10 @@ class Dataset {
      */
     public function getMatchingJournals ($titlesearch) {
         $titlesearch = mysql_real_escape_string ($titlesearch);
-        $sql1 = "SELECT jtitle, COUNT(*) AS Total
+        $sql1 = "SELECT jtitle, title, COUNT(*) AS Total
             FROM " . DATATABLE . "
             WHERE jtitle LIKE '$titlesearch'
+                OR title LIKE '$titlesearch'
             GROUP BY jtitle
             ORDER BY Total DESC
             LIMIT 0, 500";
@@ -121,7 +122,12 @@ class Dataset {
 
          $matchingjournals = array();
          while ($line = mysql_fetch_array($result1, MYSQL_ASSOC)) {
-             $jtitle = $line["jtitle"];
+             if ($line["jtitle"]) {
+                $jtitle = $line["jtitle"];
+             }
+             else {
+                 $title = $line["title"];
+             }
              $total = $line["Total"];
              $matchingjournals[$jtitle] = $total;
          }
