@@ -112,8 +112,8 @@ class Dataset {
         $titlesearch = mysql_real_escape_string ($titlesearch);
         $sql1 = "SELECT jtitle, title, COUNT(*) AS Total
             FROM " . DATATABLE . "
-            WHERE jtitle LIKE '$titlesearch'
-                OR title LIKE '$titlesearch'
+            WHERE jtitle LIKE '%$titlesearch%'
+                OR title LIKE '%$titlesearch%'
             GROUP BY jtitle
             ORDER BY Total DESC
             LIMIT 0, 500";

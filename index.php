@@ -27,7 +27,6 @@ switch ($task) {
         include 'journalsearch.php';
         break;
     default:
-        echo "default";
         include "home.php";
 }
 
