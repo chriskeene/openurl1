@@ -5,11 +5,13 @@ require_once 'class.dataset.php';
 
 $dataset = new Dataset();
 
-$titlesearch = $_GET['q'];
-
+$search = $_GET['q'];
+$searchtype = $_GET['type'];
 
 $resultlist = array();
-$resultlist = $dataset->getMatchingJournals ($titlesearch);
+
+
+$resultlist = $dataset->getMatchingJournals ($search, $searchtype);
 
 echo "<h3>Search results for $titlesearch</h3>";
         

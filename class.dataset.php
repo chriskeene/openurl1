@@ -4,14 +4,17 @@ require_once 'restrict.php';
 connectdb();
 
 /**
- * Description of datasetPHPClass
+ * dataset Class
+ * Pretty pathetic as Objects go. more a set of functions.
+ * All database requests are handled here. 
+ * Often returning an array, which something else can decide how to present
  *
  * @author chriskeene
  */
 class Dataset {
     
     
-    /*
+    /* OBSOLETE
      * getPopularJournals
      * maxnumber, how many to return
      * do we want to look at the whole set, of based on a specifc criteria,
@@ -104,16 +107,25 @@ class Dataset {
      
      
     /*
-     * getJournalDetails
-     * keyword : a journal title or issn 
-     * field : either the word 'title' or 'issn'
+     * getMatchingJournals
+     * titlesearch = search string, either title keyword or isn 
+     * searchtype : either Title or ISN
      */
-    public function getMatchingJournals ($titlesearch) {
+    public function getMatchingJournals ($titlesearch, $searchtype="Title") {
         $titlesearch = mysql_real_escape_string ($titlesearch);
+        if ($searchtype == "Title") {
+            $wherestring = "
+                WHERE jtitle LIKE '%$titlesearch%'
+                OR title LIKE '%$titlesearch%' ";
+        }
+        else {
+            $wherestring = "
+                WHERE issn = '$searchtype'
+                OR isbn = '$searchtype' ";
+        }
         $sql1 = "SELECT jtitle, title, COUNT(*) AS Total
-            FROM " . DATATABLE . "
-            WHERE jtitle LIKE '%$titlesearch%'
-                OR title LIKE '%$titlesearch%'
+            FROM " . DATATABLE . " " .
+            $wherestring . "
             GROUP BY jtitle
             ORDER BY Total DESC
             LIMIT 0, 500";

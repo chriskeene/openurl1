@@ -20,8 +20,7 @@ $listOfLists = array (
     "sid" => "Link resolver source",
     "routerRedirectIdentifier" => "Router Redirect Identifier",
     "institutionResolverID" => "Institution Resolver ID",
-    
-);
+    );
 
 echo "<h2>Statistics for " . $listOfLists[$thingytype] . " <em>$thingy</em></h2>";
 
