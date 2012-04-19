@@ -1,11 +1,13 @@
 This web app will show some stats collected from openurl.ac.uk
 
+Download data from http://openurl.ac.uk/doc/data/thedata.html
+
 load data in to mysql using a command such as the following...
 
- LOAD DATA LOCAL INFILE 'TABLE2.csv' INTO TABLE activity COLUMNS TERMINATED BY '\t';
+LOAD DATA LOCAL INFILE 'TABLE2.csv' INTO TABLE activity COLUMNS TERMINATED BY '\t';
 
 
-in am empty directory, either use download on github or
+in am empty directory, either use download on github, or:
 git clone git://github.com/chriskeene/openurl1.git
 (then git pull to keep up to date)
 

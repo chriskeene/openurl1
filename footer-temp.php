@@ -1,4 +1,20 @@
+<?php
 
+
+// ############################################
+// print processing time so far 
+function printprocessingtime($msg="")
+{
+	global $scriptStartTime, $debug;
+	if ($debug) 
+	{ 
+		echo "<p>$msg Time elapsed: ",getmicrotime() - $scriptStartTime, " seconds </p>"; 
+	}
+}
+
+echo "sql $sql1 \n";
+
+?>
 
 
 		<div class="cleaner">&nbsp;</div>
