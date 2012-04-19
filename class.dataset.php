@@ -90,7 +90,7 @@ class Dataset {
             GROUP BY $items
             ORDER BY  Total DESC
             LIMIT 0, $maxnumber";
-        //echo "\n<p> $sql1 </p>\n";
+        echo "\n<!-- $sql1 --> \n";
         //run the query
         $result1 = mysql_query($sql1) or die("Query failed : " . mysql_error());
 

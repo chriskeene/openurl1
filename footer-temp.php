@@ -13,6 +13,7 @@ function printprocessingtime($msg="")
 }
 
 echo "sql $sql1 \n";
+printprocessingtime();
 
 ?>
 
