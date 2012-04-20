@@ -8,6 +8,7 @@ function getmicrotime()
    return ((float)$usec + (float)$sec);
 }
 
+global $scriptStartTime;
 $scriptStartTime = getmicrotime(); // start time of processing script
 
 ?>
