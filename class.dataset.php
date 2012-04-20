@@ -13,50 +13,6 @@ connectdb();
  */
 class Dataset {
     
-    
-    /* OBSOLETE
-     * getPopularJournals
-     * maxnumber, how many to return
-     * do we want to look at the whole set, of based on a specifc criteria,
-     * e.g. most popular journals where the original source was web of science. 
-     * filterfield (source, date)  
-     * filter - (wok etc)
-     */
-    public function XXXgetPopularJournals($maxnumber=10, $filterfield="none", $filter="none") {
-         $sql1 = "SELECT title, COUNT(*) AS Total
-            FROM " . DATATABLE . "
-            GROUP BY title
-            ORDER BY  Total DESC
-            LIMIT 0, $maxnumber";
-         $result1 = mysql_query($sql1) or die("Query failed : " . mysql_error());
-
-         $poularjournals = array();
-         while ($line = mysql_fetch_array($result1, MYSQL_ASSOC)) {
-             $title = $line["title"];
-             $total = $line["Total"];
-             $popularjournals[$title] = $total;
-         }
-         return $popularjournals;
-        
-    }
-    
-    /*
-     * getJournalDetails
-     * keyword : a journal title or issn 
-     * field : either the word 'title' or 'issn'
-     */
-    public function XXXgetJournalDetails ($keyword, $field="journal") {
-        $sql1 = "SELECT title, issn, jtitle, COUNT(*) AS Total
-            FROM " . DATATABLE . "
-            WHERE $field = '$keyword'    
-            GROUP BY title";
-        $line = mysql_fetch_array($result1, MYSQL_ASSOC);
-        $return = array();
-        $return['title'] = $line["title"];
-        $return['jtitle'] = $line["jtitle"];
-        $return['issn'] = $line["issn"];
-        return $return;         
-    }
 
     
     
@@ -148,7 +104,16 @@ class Dataset {
     }
      
      
-     
+    public function getTypeNamesArray() {
+         $listOfLists = array (
+			"title" => "Journal title",
+			"atitle" => "Article",
+			"sid" => "Link resolver source",
+			"routerRedirectIdentifier" => "Router Redirect Identifier",
+			"institutionResolverID" => "Institution Resolver ID",
+		);
+		return $listOfLists;
+    }
      
     
 }

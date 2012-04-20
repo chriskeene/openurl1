@@ -19,7 +19,12 @@ $thingytype = $_GET['criteratype'];
 $popularlist = array();
 $popularlist = $dataset->getMostPopularItems ($show, 101, $thingytype, $thingy);
 
+$listofTypes = array();
+$listofTypes = $dataset->getTypeNamesArray();
+print_r($listofTypes);
 echo "<h2>Most popular $show for $thingytype $thingy</h2>";
+echo "<h2>Most popular " . $listofTypes[$show] . " for " . $listofTypes[$thingytype] . " <em>$thingy</em></h2>";
+
 echo "<p>&nbsp</p>";
 
 rendertopitemslist($popularlist, $show, 100);

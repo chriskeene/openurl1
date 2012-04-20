@@ -31,11 +31,11 @@ renderShowMore('title', 'none', 'none');
 echo "</div>";
 
 
-echo '<div class="listbox1">':
+echo '<div class="listbox1">'; 
 echo '<h3>Popular Sources</h3>';
 $popSourcesList = array();
 $popSourcesList = $dataset->getMostPopularItems ('sid', 20, 'none', 'none');
-rendertopitemslist($popJournalsList, 'sid', 20);
+rendertopitemslist($popSourcesList, 'sid', 20);
 renderShowMore('sid', 'none', 'none');
 echo '</div>';
 
