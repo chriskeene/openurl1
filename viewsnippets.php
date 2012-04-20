@@ -52,16 +52,16 @@ function XXXrendertopjournallist($list, $num=10) {
 function rendertopitemslist($list, $itemtype, $num=10) {
     $count;
     echo '<div class="toplist">
-        <ul>';
+        <ol>';
     foreach ($list as $item => $total) {
         if ($item == "") { continue; }
-        $count++;
+        $count++; // may no longer be needed.
         $itemurlencode = urlencode($item);
-        echo "<li>$count <a href=\"?task=itemdetails&item=$itemurlencode&itemtype=$itemtype\">$item
+        echo "<li><a href=\"?task=itemdetails&item=$itemurlencode&itemtype=$itemtype\">$item
             </a>($total) </li>";
         if ($count >= $num) { break; }
     }
-    echo "</ul>
+    echo "</ol>
         </div>";
 }
 

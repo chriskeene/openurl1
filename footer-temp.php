@@ -13,9 +13,6 @@ function printprocessingtime($msg="")
 	}
 }
 
-echo "sql $sql1 \n";
-printprocessingtime();
-
 ?>
 
 
@@ -25,7 +22,7 @@ printprocessingtime();
 	<div id="footer">
 		<div id="footer-in">
 		
-
+        <?php printprocessingtime(); ?>
 		<p class="print"><a id="print" href="#">Print</a> | <a href="#top">Top</a> &uarr;</p>
 		<div class="cleaner">&nbsp;</div>
 		<p id="backs"><a href="http://www.mantisatemplates.com/">Mantis-a templates</a> | tip <a href="http://www.topas-tachlovice.cz/topas-tachlovice.aspx" title="Občanské sdružení TOPAS Tachlovice">Tachlovice</a></p>
