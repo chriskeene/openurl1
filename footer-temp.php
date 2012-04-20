@@ -6,6 +6,7 @@
 function printprocessingtime($msg="")
 {
 	global $scriptStartTime, $debug;
+	$debug=1;
 	if ($debug) 
 	{ 
 		echo "<p>$msg Time elapsed: ",getmicrotime() - $scriptStartTime, " seconds </p>"; 
@@ -23,13 +24,7 @@ printprocessingtime();
 
 	<div id="footer">
 		<div id="footer-in">
-		<ul>
-			<li><a href="#" class=" first active">Home</a> |</li>
-			<li><a href="#">About us</a> |</li>
-			<li><a href="#">Testimonials</a> |</li>
-			<li><a href="#">We support</a> |</li>
-			<li><a href="#">Contact</a></li>
-		</ul>
+		
 
 		<p class="print"><a id="print" href="#">Print</a> | <a href="#top">Top</a> &uarr;</p>
 		<div class="cleaner">&nbsp;</div>
