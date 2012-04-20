@@ -1,8 +1,6 @@
 <?php
 
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
  * 
  * do search box
  * 
@@ -19,7 +17,7 @@ $dataset = new Dataset();
 echo "<h3>Search for a journal name</h3>";
 renderjournalsearchbox();
 
-echo "<div>";
+echo '<div style="float:left;width:300px;border:1;padding:2px;margin:2px;">';
 echo "<h3>or select one of the most popular in the openurl.ac.uk dataset</h3>";
 // show most popular journals
 $popJournalsList = array();
@@ -31,7 +29,7 @@ renderShowMore('title', 'none', 'none');
 echo "</div>";
 
 
-echo '<div class="listbox1">'; 
+echo '<div class="listbox1" style="float:left;width:300px;border:1px;padding:2px;margin:2px;">'; 
 echo '<h3>Popular Sources</h3>';
 $popSourcesList = array();
 $popSourcesList = $dataset->getMostPopularItems ('sid', 20, 'none', 'none');
